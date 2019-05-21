@@ -1,4 +1,6 @@
 from flask import Flask
+#import pdb
+#pdb.set_trace()
 
 app = Flask(__name__)
 @app.route("/")
@@ -7,17 +9,20 @@ def helloWorld():
     return "Hello World!"
 
 class mamiferos():
-    def __init__(self, name, dono):
+
+    def __init__(self, name, dono, acao):
         self.name = name
         self.dono = dono
+        self.acao = acao
     
-    def latir(self):
-        print('{0} está latindo: Au! Au! Au! Au! Au!'.format(self.name))
+    @app.route("/dog")
 
-zeze = mamiferos('zeze', 'Vanessa')
+    def latir():
+        return '{}'.format(cachorro.acao)
 
-print('O nome do cachorro é:', zeze.name, 'O dono(a) dele é:', zeze.dono)
+cachorro = mamiferos('zeze', 'Vanessa', 'Au! Au! Au! Au! Au!')
+#print(cachorro.latir())
 
-zeze.latir()
+#print('O nome do cachorro é:', cachorro.name, 'O dono(a) dele é:', cachorro.dono, 'Acao:', cachorro.latir())
 
-app.run()   
+app.run(debug=True)  
